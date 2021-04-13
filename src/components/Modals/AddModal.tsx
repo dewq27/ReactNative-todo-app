@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     borderRadius: 4,
     flex: 1,
+    color: "#000"
   },
   modalText: {
     marginBottom: 15,

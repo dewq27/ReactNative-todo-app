@@ -4,22 +4,14 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  useColorScheme,
-  View
+  View,
 } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from './src/store/store';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+import {persistor, store} from './src/store/store';
 import ListView from './src/views/List';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <Provider store={store}>
       <PersistGate
@@ -29,8 +21,8 @@ const App = () => {
           </View>
         }
         persistor={persistor}>
-        <SafeAreaView style={backgroundStyle}>
-          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <SafeAreaView style={styles.container}>
+          <StatusBar barStyle={'light-content'} />
           <ListView />
         </SafeAreaView>
       </PersistGate>
@@ -39,6 +31,9 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+  },
   loader: {
     alignItems: 'center',
     justifyContent: 'center',
